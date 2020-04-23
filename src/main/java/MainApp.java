@@ -154,6 +154,10 @@ public class MainApp implements Runnable {
         if (rootObject.getInt("cod") == 200) {
             System.out.println("Podaj ilość dni");
             int iloscDni = scanner.nextInt();
+            if(0>iloscDni|| iloscDni>5){
+                System.out.println("Zła ilość dni. Podaj ilość dni 1-5");
+                startApp();
+            }
             JSONArray listJsonArray = rootObject.getJSONArray("list");
             List<Dni> listadni = new ArrayList<>();
             int ktorydzien=0;
@@ -182,7 +186,7 @@ public class MainApp implements Runnable {
             }
             System.out.println(listadni);
             System.out.println("*Dane podawane są dla tej samej godziny w ciągu dnia o której program został włączony");
-
+            ;
         } else {
             System.out.println("Error");
         }
